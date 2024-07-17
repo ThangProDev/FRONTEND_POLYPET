@@ -3,12 +3,17 @@ package md04.polytechnic.frontend_polypet.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.tabs.TabLayout;
+
 import md04.polytechnic.frontend_polypet.R;
+import md04.polytechnic.frontend_polypet.adapter.NotificationPagerAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +66,14 @@ public class MangeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mange, container, false);
+        View view = inflater.inflate(R.layout.fragment_mange, container, false);
+        TabLayout tabLayout = view.findViewById(R.id.tab_noti);
+        ViewPager viewPager = view.findViewById(R.id.viewPager);
+
+        NotificationPagerAdapter adapter = new NotificationPagerAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        return view;
     }
 }
