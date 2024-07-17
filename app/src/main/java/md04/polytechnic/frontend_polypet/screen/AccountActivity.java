@@ -1,6 +1,7 @@
 package md04.polytechnic.frontend_polypet.screen;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 import md04.polytechnic.frontend_polypet.R;
 
 public class AccountActivity extends AppCompatActivity {
-
+    ImageView iconBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +23,8 @@ public class AccountActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        iconBack = findViewById(R.id.iconBack);
+        iconBack.setOnClickListener(v -> finish());
     }
 }
