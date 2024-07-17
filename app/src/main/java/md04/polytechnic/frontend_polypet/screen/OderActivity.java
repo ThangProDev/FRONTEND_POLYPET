@@ -9,17 +9,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import md04.polytechnic.frontend_polypet.R;
+import md04.polytechnic.frontend_polypet.adapter.OderAdapter;
+import md04.polytechnic.frontend_polypet.databinding.ActivityOderBinding;
 
 public class OderActivity extends AppCompatActivity {
-    @Override
+    private ActivityOderBinding binding;
+    private OderAdapter adapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_oder);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivityOderBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
     }
 }
